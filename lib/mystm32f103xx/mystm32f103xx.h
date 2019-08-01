@@ -152,6 +152,7 @@ typedef struct  {
 
 
 
+#include "../mystm32f103xx/mystm32f103xx.h"
 
 
 #endif /* INC_MYSTM32F103XX_H_ */
