@@ -22,35 +22,35 @@ typedef struct{
 	uint8_t GPIO_PinPuPdCtrl;
 	uint8_t GPIO_PinOutType;
 	uint8_t GPIO_PinALtFunMode;
-}GPIO_PinConfig;
+}mGPIO_PinConfig;
 /*
 	this is a handle structure for a gpio pin
 */
 typedef struct{
-	GPIO_RegDef pGPIOx;	//holds the base address of the gpio port to which the pin belongs
-	GPIO_PinConfig GPIOxPinConfig;	//holds gpio pin conf settings
-} GPIO_Handle_t;
+	mGPIO_RegDef pGPIOx;	//holds the base address of the gpio port to which the pin belongs
+	mGPIO_PinConfig GPIOxPinConfig;	//holds gpio pin conf settings
+} mGPIO_Handle_t;
 /*************************METHODS**************************************/
 /*
  *clock enablig
  */
-void GPIO_PeriphClockControl(GPIO_RegDef *pGPIOx,uint8_t EnOrDi);
+void mGPIO_PeriphClockControl(mGPIO_RegDef *pGPIOx,uint8_t EnOrDi);
 //(de)initializers
-void GPIO_Init(GPIO_Handle_t *pGPIOHandle);
-void GPIO_DeInit(GPIO_RegDef *pGPIOx);
+void mGPIO_Init(mGPIO_Handle_t *pGPIOHandle);
+void mGPIO_DeInit(mGPIO_RegDef *pGPIOx);
 /*
  * data write/read
  */
-uint8_t GPIO_ReadOutputPin(GPIO_RegDef *pGPIOx, uint8_t PinNumber);
-uint16_t GPIO_ReadOutputPort(GPIO_RegDef *pGPIOx);
-void GPIO_WriteToInputPin(GPIO_RegDef *pGPIOx, uint8_t PinNumber, uint8_t value);
-void GPIO_WriteToInputPort(GPIO_RegDef *pGPIOx, uint16_t value);
-void GPIO_ToggleOutputPin(GPIO_RegDef *pGPIOx,uint8_t PinNumber);
+uint8_t mGPIO_ReadOutputPin(mGPIO_RegDef *pGPIOx, uint8_t PinNumber);
+uint16_t mGPIO_ReadOutputPort(mGPIO_RegDef *pGPIOx);
+void mGPIO_WriteToInputPin(mGPIO_RegDef *pGPIOx, uint8_t PinNumber, uint8_t value);
+void mGPIO_WriteToInputPort(mGPIO_RegDef *pGPIOx, uint16_t value);
+void mGPIO_ToggleOutputPin(mGPIO_RegDef *pGPIOx,uint8_t PinNumber);
 /*
 	IRQ Conf and ISR Handling
  */
-void GPIO_IRQConfig(uint8_t IRQHandler, uint8_t IRQPrority,uint8_t EnOrDi);
-void GPIO_IRQHandling(uint8_t IRQPinNumber);
+void mGPIO_IRQConfig(uint8_t IRQHandler, uint8_t IRQPrority,uint8_t EnOrDi);
+void mGPIO_IRQHandling(uint8_t IRQPinNumber);
 
 
 
