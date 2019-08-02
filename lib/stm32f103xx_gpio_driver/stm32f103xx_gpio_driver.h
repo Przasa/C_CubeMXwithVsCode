@@ -54,5 +54,4 @@ void mGPIO_IRQHandling(uint8_t IRQPinNumber);
 
 
 
-
 #endif /* INC_STM32F103XX_GPIO_DRIVER_H_ */
